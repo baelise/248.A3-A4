@@ -1,3 +1,9 @@
+// -------------------------------------------------------
+// Assignment 3
+// Written by: Andrei Barbulescu
+// For COMP 248 Section P – Fall 2021
+// --------------------------------------------------------
+
 import java.util.Scanner;
 
 public class Calendar {

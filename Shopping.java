@@ -1,7 +1,16 @@
+// -------------------------------------------------------
+// Assignment 3
+// Written by: Andrei Barbulescu
+// For COMP 248 Section P – Fall 2021
+// --------------------------------------------------------
+
 import java.util.Scanner;
 
 public class Shopping {
 
+    /* COPY & PASTE
+        banana$1,tomato$5,apple$3
+    */
     public static void main(String[] args) {
 
         //Welcome message
@@ -14,51 +23,45 @@ public class Shopping {
         String text = new String();
         Scanner var = new Scanner(System.in);
         text = var.nextLine();
+        int total = 0;
 
         //Splitting the string whenever we see the ',' so that we know the array size required
         String [] arrText= text.split(",");
-        String largest = "";
-
-        //Finding the largest word from the list
-        for (int i = 0; i < arrText.length; i++) {
-            if (arrText[i].length() > largest.length()){
-                largest = arrText[i];
-            }
-        }
 
         //Declare our grocery list and price arrays
-        char [][]list = new char[arrText.length][largest.length()];
-        String [] priceStr = new String[arrText.length];
+        char [][]list = new char[arrText.length][];
+        int [] price = new int[arrText.length];
+        int index = 0;
 
-        //split the string with the dollar sign
-        for (int i = 0; i < arrText.length; i++) {
-            arrText[i] = arrText[i].substring(0,arrText[i].indexOf('$'));
-            priceStr[i] = arrText[i].substring(arrText[i].indexOf('$')+1, arrText.length);
-
+        //fill in the character and price array with user data
+        for (String product : arrText) {
+            price[index] = Integer.parseInt(product.substring(product.lastIndexOf("$") + 1));
+            list[index] = product.substring(0, product.lastIndexOf("$")).toCharArray();
+            index++;
         }
 
-        for (int i = 0; i < priceStr.length; i++) {
-            System.out.println(priceStr[i]);
+        //If user enters nothing
+        if (text.equals("0")){
+            System.out.println("You have 0 items in the list now!");
+            System.out.println("Thank you for using this program!!");
         }
+        
+        //If the user enters a grocery list
+        else {
+            System.out.println("Here are the list of items: ");
+            System.out.println();
 
-        //Fill in the list array
-        for (int row = 0; row < arrText.length ; row++)
-        {
-            for (int column = 0; column < largest.length(); column++)
-            {
-
+            //Printing out the food contents
+            for (int i = 0; i < arrText.length ; i++) {
+                System.out.print("No." + (i+1) + " ");
+                System.out.print(list[i]);
+                System.out.println();
+                total += price[i];
             }
+            //Printing out the closing statement
+            System.out.println("The total price is : $" + total + ".");
+            System.out.println();
+            System.out.println("Thank you for using this program!");
         }
-
-        //Fill in the price array
-        for (int row = 0; row < arrText.length ; row++)
-        {
-            for (int column = 0; column < largest.length(); column++) {
-                //price[row] = Integer.parseInt(list[row][column]);
-
-            }
-
-        }
-
     }
 }
