@@ -41,7 +41,7 @@ public class Shopping {
         }
 
         //If user enters nothing
-        if (text.equals("0")){
+        if (text.equals("0")){ 
             System.out.println("You have 0 items in the list now!");
             System.out.println("Thank you for using this program!!");
         }
