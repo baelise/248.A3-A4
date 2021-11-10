@@ -45,6 +45,23 @@ public class Tickets {
         this.juniorTicketAmount = juniorTicketAmount;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tickets)) return false;
+
+        Tickets tickets = (Tickets) o;
+
+        if (getRegularTicketAmount() != tickets.getRegularTicketAmount()) return false;
+        if (getJuniorTicketAmount() != tickets.getJuniorTicketAmount()) return false;
+        if (getSeniorTicketAmount() != tickets.getSeniorTicketAmount()) return false;
+        if (getDailyTicketAmount() != tickets.getDailyTicketAmount()) return false;
+        if (getWeeklyTicketAmount() != tickets.getWeeklyTicketAmount()) return false;
+
+        return true;
+    }
+
+
     public void setSeniorTicketAmount(int seniorTicketAmount) {
         this.seniorTicketAmount = seniorTicketAmount;
     }
@@ -66,4 +83,6 @@ public class Tickets {
         dailyTicketAmount += d;
         weeklyTicketAmount += e;
     }
+
+
 }
