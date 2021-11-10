@@ -5,6 +5,12 @@ public class Tickets {
     //Default constructor
     public Tickets() {}
 
+    //Copy Constructor
+    public Tickets(Tickets tickets)
+    {
+
+    }
+
     //Constructor that allows to set the amount of tickets in a Ticket object
     public Tickets(int a, int b, int c, int d, int e)
     {
@@ -45,22 +51,6 @@ public class Tickets {
         this.juniorTicketAmount = juniorTicketAmount;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Tickets)) return false;
-
-        Tickets tickets = (Tickets) o;
-
-        if (getRegularTicketAmount() != tickets.getRegularTicketAmount()) return false;
-        if (getJuniorTicketAmount() != tickets.getJuniorTicketAmount()) return false;
-        if (getSeniorTicketAmount() != tickets.getSeniorTicketAmount()) return false;
-        if (getDailyTicketAmount() != tickets.getDailyTicketAmount()) return false;
-        if (getWeeklyTicketAmount() != tickets.getWeeklyTicketAmount()) return false;
-
-        return true;
-    }
-
 
     public void setSeniorTicketAmount(int seniorTicketAmount) {
         this.seniorTicketAmount = seniorTicketAmount;
@@ -85,4 +75,32 @@ public class Tickets {
     }
 
 
+    //equals method that compares two ticket Objects
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tickets)) return false;
+
+        Tickets tickets = (Tickets) o;
+
+        if (getRegularTicketAmount() != tickets.getRegularTicketAmount()) return false;
+        if (getJuniorTicketAmount() != tickets.getJuniorTicketAmount()) return false;
+        if (getSeniorTicketAmount() != tickets.getSeniorTicketAmount()) return false;
+        if (getDailyTicketAmount() != tickets.getDailyTicketAmount()) return false;
+        if (getWeeklyTicketAmount() != tickets.getWeeklyTicketAmount()) return false;
+
+        return true;
+    }
+
+    //To string method that prints out the amount of tickets that we have
+    @Override
+    public String toString() {
+        return "Tickets{" +
+                "regularTicketAmount=" + regularTicketAmount +
+                ", juniorTicketAmount=" + juniorTicketAmount +
+                ", seniorTicketAmount=" + seniorTicketAmount +
+                ", dailyTicketAmount=" + dailyTicketAmount +
+                ", weeklyTicketAmount=" + weeklyTicketAmount +
+                '}';
+    }
 }
