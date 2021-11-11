@@ -8,7 +8,11 @@ public class Tickets {
     //Copy Constructor
     public Tickets(Tickets tickets)
     {
-
+        this.regularTicketAmount = tickets.regularTicketAmount;
+        this.juniorTicketAmount = tickets.juniorTicketAmount;
+        this.seniorTicketAmount = tickets.seniorTicketAmount;
+        this.dailyTicketAmount = tickets.regularTicketAmount;
+        this.weeklyTicketAmount = tickets.weeklyTicketAmount;
     }
 
     //Constructor that allows to set the amount of tickets in a Ticket object
@@ -102,5 +106,11 @@ public class Tickets {
                 ", dailyTicketAmount=" + dailyTicketAmount +
                 ", weeklyTicketAmount=" + weeklyTicketAmount +
                 '}';
+    }
+
+    //Return the total value of the tickets
+    public double ticketsTotal(){
+        return getDailyTicketAmount() * dailyTicketPrice + getJuniorTicketAmount() * juniorTicketPrice + getRegularTicketAmount() * regularTicketPrice
+                + getSeniorTicketAmount() * seniorTicketPrice + getWeeklyTicketAmount() * weeklyTicketPrice;
     }
 }
