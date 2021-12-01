@@ -121,12 +121,10 @@ public class Ticketbooth
         if (!ticketEqual(other,that)) {
             return false;
         }
-       if (other.totalOpus() != that.totalOpus())
-       {
-           return false;
-       }
-       else return true;
+        return other.totalOpus() == that.totalOpus();
     }
+
+
 
 
 }
