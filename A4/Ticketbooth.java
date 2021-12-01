@@ -94,7 +94,7 @@ public class Ticketbooth
         }
         else{
                 OPUSCard[] test1 = new OPUSCard[card.length-1];
-            for (int i = 0; i < card.length; i++) {
+            for (int i = 0; i < (card.length -1); i++) {    // all i changed with the upper bound condition, program kept returning out of bounds so i fixed it
                 test1[i] = card[i];
             }
             card = test1;
