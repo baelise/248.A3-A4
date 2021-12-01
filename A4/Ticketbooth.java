@@ -125,6 +125,10 @@ public class Ticketbooth
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Ticketbooth{" +
+                "tickets=" + tickets +
+                '}' + "Opus cards" + Arrays.toString(card);
+    }
 }

@@ -1,103 +1,103 @@
+import java.util.Objects;
+
 public class OPUSCard {
 
-    // attributes
-    // variables must be private
-    private String cardType, cardHolder;
-    private int expYear, expMonth;
+        // attributes
+        // variables must be private
+        private String cardType, cardHolder;
+        private int expYear, expMonth;
 
-    // default constructor
-    public OPUSCard() {}
+        // default constructor
+        public OPUSCard() {}
 
-    // copy constructor
-    public OPUSCard(OPUSCard opus) {
-        this.cardHolder = opus.cardHolder;
-        this.cardType = opus.cardType;
-        this.expMonth = opus.expMonth;
-        this.expYear = opus.expYear;
-    }
-
-    public OPUSCard(String a, String b, int c, int d)
-    {
-        cardType = a;
-        cardHolder = b;
-        expYear = c;
-        if(d > 0 && d < 13)
-        {
-            expMonth = d;
+        // copy constructor
+        public OPUSCard(OPUSCard opus) {
+            this.cardHolder = opus.cardHolder;
+            this.cardType = opus.cardType;
+            this.expMonth = opus.expMonth;
+            this.expYear = opus.expYear;
         }
-        else
+
+        public OPUSCard(String a, String b, int c, int d)
         {
-            expMonth = 0;
+            cardType = a;
+            cardHolder = b;
+            expYear = c;
+            if(d > 0 && d < 13)
+            {
+                expMonth = d;
+            }
+            else
+            {
+                expMonth = 0;
+            }
         }
-    }
-    // accessor methods
-    public String getCardType()
-    {
-        return cardType;
-    }
-
-    public String getCardHolder()
-    {
-        return cardHolder;
-    }
-
-    public int getExpMonth()
-    {
-        return expMonth;
-    }
-
-    public int getExpYear()
-    {
-        return expYear;
-    }
-
-    // mutator methods
-    public void setExpMonth(int expMonth)
-    {
-        if(expMonth > 0 && expMonth <13)
+        // accessor methods
+        public String getCardType()
         {
-            this.expMonth = expMonth;
+            return cardType;
         }
-        else
+
+        public String getCardHolder()
         {
-            this.expMonth = 0;
+            return cardHolder;
         }
-    }
 
-    public void setExpYear(int expYear)
-    {
-        this.expYear = expYear;
-    }
-    // print out
-    @Override
-    public String toString()
-    {
-        return "OPUSCard{ " +
-                "cardType: " + cardType +
-                " cardHolder: " + cardHolder +
-                " expYear: " + expYear +
-                "expMonth " + expMonth +
-                "}";
-    }
+        public int getExpMonth()
+        {
+            return expMonth;
+        }
 
-    @Override
-    public boolean equals(Object j)
-    {
-        if(this == j) return true;
-        if(!(j instanceof OPUSCard)) return false;
+        public int getExpYear()
+        {
+            return expYear;
+        }
 
-        OPUSCard opusCard = (OPUSCard) j;
+        // mutator methods
+        public void setExpMonth(int expMonth)
+        {
+            if(expMonth > 0 && expMonth <13)
+            {
+                this.expMonth = expMonth;
+            }
+            else
+            {
+                this.expMonth = 0;
+            }
+        }
 
-        if(getCardType() != opusCard.getCardType()) return false;
-        if(getCardHolder() != opusCard.getCardHolder())  return false;
-        if(getExpYear() != opusCard.getExpYear())  return false;
-        if(getExpMonth() != opusCard.getExpMonth()) return false;
-        return true;
-    }
+        public void setExpYear(int expYear)
+        {
+            this.expYear = expYear;
+        }
+        // print out
+        @Override
+        public String toString()
+        {
+            return "OPUSCard{ " +
+                    "cardType: " + cardType +
+                    " cardHolder: " + cardHolder +
+                    " expYear: " + expYear +
+                    "expMonth " + expMonth +
+                    "}";
+        }
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            OPUSCard other = (OPUSCard) obj;
+            return Objects.equals(cardHolder, other.cardHolder) && Objects.equals(cardType, other.cardType)
+                    && expMonth == other.expMonth && expYear == other.expYear;
+        }
 
-	/*public static void main(String[] args) {
-		OPUSCard one = new OPUSCard("My mom","My dad",13,6);
-		OPUSCard two = new OPUSCard(one);
-		System.out.print(two);
-	}*/
+
+        /*public static void main(String[] args) {
+            OPUSCard one = new OPUSCard("My mom","My dad",13,6);
+            OPUSCard two = new OPUSCard(one);
+            System.out.print(two);
+        }*/
 }
